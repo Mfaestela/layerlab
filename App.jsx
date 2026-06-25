@@ -445,8 +445,8 @@ const Clients = ({ clients, addClient, updateClient, deleteClient }) => {
   const [search, setSearch] = useState("");
   const [saving, setSaving] = useState(false);
 
-  const openNew = () => { setForm({ name: "", phone: "", whatsapp: "", email: "", notes: "" }); setEditing(null); setShowModal(true); };
-  const openEdit = (c) => { setForm({ name: c.name||"", phone: c.phone||"", whatsapp: c.whatsapp||"", email: c.email||"", notes: c.notes||"" }); setEditing(c.id); setShowModal(true); };
+  const openNew = () => { setForm({ name: "", whatsapp: "", email: "", notes: "" }); setEditing(null); setShowModal(true); };
+  const openEdit = (c) => { setForm({ name: c.name||"", whatsapp: c.whatsapp||"", email: c.email||"", notes: c.notes||"" }); setEditing(c.id); setShowModal(true); };
   const save = async () => {
     if (!form.name.trim()) return;
     setSaving(true);
@@ -487,7 +487,7 @@ const Clients = ({ clients, addClient, updateClient, deleteClient }) => {
               <div>
                 <div style={{ fontWeight: 700, color: C.text, fontSize: 16 }}>{c.name}</div>
                 <div style={{ color: C.textLight, fontSize: 13, marginTop: 2 }}>
-                  {c.phone && <span>📞 {c.phone}</span>}
+                  {c.whatsapp && <span>📱 {c.whatsapp}</span>}
                   {c.email && <span style={{ marginLeft: 12 }}>✉️ {c.email}</span>}
                 </div>
                 {c.notes && <div style={{ color: C.textMid, fontSize: 12, marginTop: 4 }}>📝 {c.notes}</div>}
@@ -508,7 +508,6 @@ const Clients = ({ clients, addClient, updateClient, deleteClient }) => {
       {showModal && (
         <Modal title={editing ? "Editar Cliente" : "Novo Cliente"} onClose={() => setShowModal(false)}>
           <Field label="Nome *" value={form.name} onChange={v => setForm(f => ({ ...f, name: v }))} placeholder="Nome do cliente" />
-          <Field label="Telefone" value={form.phone} onChange={v => setForm(f => ({ ...f, phone: v }))} placeholder="(11) 99999-9999" />
           <Field label="WhatsApp (só números)" value={form.whatsapp} onChange={v => setForm(f => ({ ...f, whatsapp: v }))} placeholder="11999999999" />
           <Field label="E-mail" value={form.email} onChange={v => setForm(f => ({ ...f, email: v }))} placeholder="email@exemplo.com" />
           <Field label="Observações" value={form.notes} onChange={v => setForm(f => ({ ...f, notes: v }))} placeholder="Preferências, histórico..." />
