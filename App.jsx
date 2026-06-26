@@ -1,6 +1,6 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 
-// ── PALETA ──────────────────────────────────────────────
+// â”€â”€ PALETA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const C = {
   primary: "#7B4FA6",
   primaryLight: "#9B6DC5",
@@ -17,7 +17,7 @@ const C = {
   bg: "#FAF8FF",
 };
 
-// ── ÍCONES SVG ───────────────────────────────────────────
+// â”€â”€ ÃCONES SVG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const Icon = ({ name, size = 20, color = "currentColor" }) => {
   const icons = {
     home: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />,
@@ -41,7 +41,7 @@ const Icon = ({ name, size = 20, color = "currentColor" }) => {
   );
 };
 
-// ── LOGO LAYERLAB ────────────────────────────────────────
+// â”€â”€ LOGO LAYERLAB â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const Logo = ({ small, dark }) => {
   const s = small ? 36 : 48;
   const purple = dark ? "#C9A8FF" : "#9B6DC5";
@@ -59,7 +59,7 @@ const Logo = ({ small, dark }) => {
         {/* Bico da impressora descendo */}
         <line x1="40" y1="12" x2="40" y2="38" stroke={purpleDark} strokeWidth="3" strokeLinecap="round" />
         <circle cx="40" cy="40" r="3" fill={purpleDark} />
-        {/* Camadas empilhadas — lado direito do frasco */}
+        {/* Camadas empilhadas â€” lado direito do frasco */}
         {[0,1,2,3,4].map(i => (
           <line key={i}
             x1={50 + i * 2} y1={18 + i * 7}
@@ -68,7 +68,7 @@ const Logo = ({ small, dark }) => {
             opacity={1 - i * 0.15}
           />
         ))}
-        {/* Faíscas */}
+        {/* FaÃ­scas */}
         <path d="M24 18 L26 14 L28 18 L24 18Z" fill={purple} opacity="0.7" />
         <path d="M18 28 L20 24 L22 28 L18 28Z" fill={purple} opacity="0.5" />
         {/* Gato dentro do frasco */}
@@ -76,7 +76,7 @@ const Logo = ({ small, dark }) => {
         <path d="M26 52 L23 45 L30 48 Z" fill={purple} />
         {/* Orelha direita */}
         <path d="M54 52 L57 45 L50 48 Z" fill={purple} />
-        {/* Cabeça */}
+        {/* CabeÃ§a */}
         <ellipse cx="40" cy="56" rx="14" ry="10" fill="white" stroke={purple} strokeWidth="2" />
         {/* Olhos */}
         <circle cx="35" cy="54" r="2" fill={purpleDark} />
@@ -98,14 +98,14 @@ const Logo = ({ small, dark }) => {
         <span style={{ fontFamily: "'Georgia', serif", fontWeight: 700, fontSize: 22, letterSpacing: 1 }}>
           <span style={{ color: textDark }}>Layer</span>
           <span style={{ color: textPurple }}>Lab</span>
-          <span style={{ color: textPurple, fontSize: 13 }}>✦</span>
+          <span style={{ color: textPurple, fontSize: 13 }}>âœ¦</span>
         </span>
       )}
     </div>
   );
 };
 
-// ── LAYERS DECORATIVAS ───────────────────────────────────
+// â”€â”€ LAYERS DECORATIVAS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const LayerDivider = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: 2, margin: "8px 0" }}>
     {[100, 85, 70, 55].map((w, i) => (
@@ -114,13 +114,13 @@ const LayerDivider = () => (
   </div>
 );
 
-// ── BADGE STATUS ─────────────────────────────────────────
+// â”€â”€ BADGE STATUS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const statusConfig = {
-  "Pedido Recebido": { color: "#7B4FA6", bg: "#EDE4FF", emoji: "📥" },
-  "Em Produção":     { color: "#F0A500", bg: "#FFF3CD", emoji: "⚙️" },
-  "Acabamento":      { color: "#0077CC", bg: "#D0ECFF", emoji: "✨" },
-  "Finalizado":      { color: "#5CB85C", bg: "#D4EDDA", emoji: "✅" },
-  "Entregue":        { color: "#888",    bg: "#EEE",    emoji: "📦" },
+  "Pedido Recebido": { color: "#7B4FA6", bg: "#EDE4FF", emoji: "ðŸ“¥" },
+  "Em ProduÃ§Ã£o":     { color: "#F0A500", bg: "#FFF3CD", emoji: "âš™ï¸" },
+  "Acabamento":      { color: "#0077CC", bg: "#D0ECFF", emoji: "âœ¨" },
+  "Finalizado":      { color: "#5CB85C", bg: "#D4EDDA", emoji: "âœ…" },
+  "Entregue":        { color: "#888",    bg: "#EEE",    emoji: "ðŸ“¦" },
 };
 
 const StatusBadge = ({ status }) => {
@@ -136,7 +136,7 @@ const StatusBadge = ({ status }) => {
   );
 };
 
-// ── MODAL ────────────────────────────────────────────────
+// â”€â”€ MODAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const Modal = ({ title, onClose, children }) => (
   <div style={{
     position: "fixed", inset: 0, background: "rgba(30,16,48,0.55)",
@@ -158,7 +158,7 @@ const Modal = ({ title, onClose, children }) => (
   </div>
 );
 
-// ── CAMPO DE INPUT ───────────────────────────────────────
+// â”€â”€ CAMPO DE INPUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const Field = ({ label, type = "text", value, onChange, placeholder, step, min, style: sx }) => (
   <div style={{ marginBottom: 14, ...sx }}>
     <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.textMid, marginBottom: 5, textTransform: "uppercase", letterSpacing: 0.5 }}>
@@ -178,7 +178,7 @@ const Field = ({ label, type = "text", value, onChange, placeholder, step, min, 
     />
   </div>
 );
-// ── CAMPO MONETÁRIO ──────────────────────────────────────
+// â”€â”€ CAMPO MONETÃRIO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const MoneyField = ({ label, value, onChange }) => {
   const fmt = (v) => {
     const num = v.replace(/\D/g, "");
@@ -248,9 +248,9 @@ const Btn = ({ children, onClick, variant = "primary", size = "md", disabled }) 
   );
 };
 
-// ════════════════════════════════════════════════════════
-// SEÇÃO: DASHBOARD
-// ════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// SEÃ‡ÃƒO: DASHBOARD
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const Dashboard = ({ orders, clients, catalog, supplies, setPage }) => {
   const paidOrders = orders.filter(o => o.paid);
   const totalRevenue = paidOrders.reduce((s, o) => s + (parseFloat(o.finalPrice) || 0), 0);
@@ -258,7 +258,7 @@ const Dashboard = ({ orders, clients, catalog, supplies, setPage }) => {
   const realProfit = totalRevenue - totalSupplies;
 
   const aguardando = orders.filter(o => o.status === "Pedido Recebido").length;
-  const emProducao = orders.filter(o => o.status === "Em Produção").length;
+  const emProducao = orders.filter(o => o.status === "Em ProduÃ§Ã£o").length;
   const acabamento = orders.filter(o => o.status === "Acabamento").length;
   const finalizados = orders.filter(o => o.status === "Finalizado" || o.status === "Entregue").length;
 
@@ -266,7 +266,7 @@ const Dashboard = ({ orders, clients, catalog, supplies, setPage }) => {
     { id: "calculator", label: "Calculadora", icon: "calc"    },
     { id: "orders",     label: "Pedidos",     icon: "orders"  },
     { id: "clients",    label: "Clientes",    icon: "clients" },
-    { id: "catalog",    label: "Catálogo",    icon: "catalog" },
+    { id: "catalog",    label: "CatÃ¡logo",    icon: "catalog" },
     { id: "supplies",   label: "Insumos",     icon: "box"     },
     { id: "financial",  label: "Financeiro",  icon: "chart"   },
   ];
@@ -283,7 +283,7 @@ const Dashboard = ({ orders, clients, catalog, supplies, setPage }) => {
       {/* HEADER */}
       <div style={{ marginBottom: 28 }}>
         <div style={{ fontSize: 13, color: "rgba(201,168,255,0.6)", fontWeight: 600, letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 4 }}>Painel de Controle</div>
-        <h2 style={{ color: "#EEE8FF", margin: 0, fontSize: 22, fontWeight: 800 }}>Olá! 👋</h2>
+        <h2 style={{ color: "#EEE8FF", margin: 0, fontSize: 22, fontWeight: 800 }}>OlÃ¡! ðŸ‘‹</h2>
       </div>
 
       {/* BANNER FINANCEIRO */}
@@ -309,22 +309,22 @@ const Dashboard = ({ orders, clients, catalog, supplies, setPage }) => {
             {realProfit < 0 ? "-" : ""}R$ {Math.abs(realProfit).toFixed(2).replace(".", ",")}
           </div>
           <div style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", marginTop: 2 }}>
-            {realProfit < 0 ? `Faltam R$ ${Math.abs(realProfit).toFixed(2).replace(".", ",")} pra empatar` : "No lucro! 🎉"}
+            {realProfit < 0 ? `Faltam R$ ${Math.abs(realProfit).toFixed(2).replace(".", ",")} pra empatar` : "No lucro! ðŸŽ‰"}
           </div>
         </div>
       </div>
       {totalSupplies > 0 && (
         <div style={{ marginTop: 10, paddingTop: 10, borderTop: "1px solid rgba(255,255,255,0.15)", fontSize: 12, color: "rgba(255,255,255,0.6)", display: "flex", justifyContent: "space-between" }}>
-          <span>📦 Investido em insumos</span>
+          <span>ðŸ“¦ Investido em insumos</span>
           <span style={{ color: "#FF8A80", fontWeight: 600 }}>- R$ {totalSupplies.toFixed(2).replace(".", ",")}</span>
         </div>
       )}
 
-      {/* PRODUÇÃO — mini pills */}
+      {/* PRODUÃ‡ÃƒO â€” mini pills */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 8, marginBottom: 24 }}>
         {[
           { label: "Aguardando", value: aguardando, color: "#C9A8FF", dot: "#9B6DC5" },
-          { label: "Produção",   value: emProducao, color: "#FFD166", dot: "#E0A800" },
+          { label: "ProduÃ§Ã£o",   value: emProducao, color: "#FFD166", dot: "#E0A800" },
           { label: "Acabamento", value: acabamento, color: "#6EC6FF", dot: "#0090E0" },
           { label: "Prontos",    value: finalizados, color: "#7FFFA8", dot: "#00C853" },
         ].map(s => (
@@ -338,7 +338,7 @@ const Dashboard = ({ orders, clients, catalog, supplies, setPage }) => {
         ))}
       </div>
 
-      {/* BOTÕES DE NAVEGAÇÃO */}
+      {/* BOTÃ•ES DE NAVEGAÃ‡ÃƒO */}
       <div style={{ fontSize: 11, color: "rgba(201,168,255,0.5)", fontWeight: 600, letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 12 }}>Acessar</div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 28 }}>
         {navButtons.map(n => (
@@ -376,11 +376,11 @@ const Dashboard = ({ orders, clients, catalog, supplies, setPage }) => {
         ))}
       </div>
 
-      {/* ÚLTIMOS PEDIDOS */}
-      <div style={{ fontSize: 11, color: "rgba(201,168,255,0.5)", fontWeight: 600, letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 12 }}>Últimos Pedidos</div>
+      {/* ÃšLTIMOS PEDIDOS */}
+      <div style={{ fontSize: 11, color: "rgba(201,168,255,0.5)", fontWeight: 600, letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 12 }}>Ãšltimos Pedidos</div>
       {orders.length === 0 ? (
         <div style={{ ...glassCard, padding: "32px 20px", textAlign: "center", color: "rgba(201,168,255,0.5)" }}>
-          <div style={{ fontSize: 32, marginBottom: 8 }}>📭</div>
+          <div style={{ fontSize: 32, marginBottom: 8 }}>ðŸ“­</div>
           <p style={{ margin: 0, fontSize: 14 }}>Nenhum pedido ainda.</p>
         </div>
       ) : (
@@ -392,7 +392,7 @@ const Dashboard = ({ orders, clients, catalog, supplies, setPage }) => {
             }}>
               <div>
                 <div style={{ fontWeight: 600, color: "#EEE8FF", fontSize: 14 }}>{o.productName}</div>
-                <div style={{ fontSize: 11, color: "rgba(201,168,255,0.55)", marginTop: 2 }}>{o.clientName} · {o.orderDate}</div>
+                <div style={{ fontSize: 11, color: "rgba(201,168,255,0.55)", marginTop: 2 }}>{o.clientName} Â· {o.orderDate}</div>
               </div>
               <StatusBadge status={o.status} />
             </div>
@@ -403,9 +403,9 @@ const Dashboard = ({ orders, clients, catalog, supplies, setPage }) => {
   );
 };
 
-// ════════════════════════════════════════════════════════
-// SEÇÃO: CALCULADORA
-// ════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// SEÃ‡ÃƒO: CALCULADORA
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const Calculator = () => {
   const [filamentPrice, setFilamentPrice] = useState("90");
   const [gramsUsed, setGramsUsed] = useState("50");
@@ -442,24 +442,24 @@ const Calculator = () => {
 
   return (
     <div>
-      <h2 style={{ color: C.primaryDark, margin: "0 0 4px" }}>Calculadora de Precificação</h2>
-      <p style={{ color: C.textMid, marginBottom: 24 }}>Calcule o preço ideal para cada peça.</p>
+      <h2 style={{ color: C.primaryDark, margin: "0 0 4px" }}>Calculadora de PrecificaÃ§Ã£o</h2>
+      <p style={{ color: C.textMid, marginBottom: 24 }}>Calcule o preÃ§o ideal para cada peÃ§a.</p>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <div style={{ background: C.white, borderRadius: 14, padding: 22, boxShadow: "0 2px 12px rgba(123,79,166,0.08)" }}>
-          <h4 style={{ color: C.primaryDark, margin: "0 0 16px", fontSize: 13, textTransform: "uppercase", letterSpacing: 1 }}>🧵 Filamento</h4>
-          <Field label="Preço do Filamento (R$/kg)" type="number" value={filamentPrice} onChange={v => { setFilamentPrice(v); setCalculated(false); }} placeholder="90" />
+          <h4 style={{ color: C.primaryDark, margin: "0 0 16px", fontSize: 13, textTransform: "uppercase", letterSpacing: 1 }}>ðŸ§µ Filamento</h4>
+          <Field label="PreÃ§o do Filamento (R$/kg)" type="number" value={filamentPrice} onChange={v => { setFilamentPrice(v); setCalculated(false); }} placeholder="90" />
           <Field label="Gramas Usadas (g)" type="number" value={gramsUsed} onChange={v => { setGramsUsed(v); setCalculated(false); }} placeholder="50" />
-          <h4 style={{ color: C.primaryDark, margin: "16px 0 12px", fontSize: 13, textTransform: "uppercase", letterSpacing: 1 }}>⚡ Energia & Máquina</h4>
-          <Field label="Horas de Impressão (h)" type="number" value={printHours} onChange={v => { setPrintHours(v); setCalculated(false); }} placeholder="3" step="0.5" />
+          <h4 style={{ color: C.primaryDark, margin: "16px 0 12px", fontSize: 13, textTransform: "uppercase", letterSpacing: 1 }}>âš¡ Energia & MÃ¡quina</h4>
+          <Field label="Horas de ImpressÃ£o (h)" type="number" value={printHours} onChange={v => { setPrintHours(v); setCalculated(false); }} placeholder="3" step="0.5" />
           <Field label="Energia por Hora (R$/h)" type="number" value={energyPerHour} onChange={v => { setEnergyPerHour(v); setCalculated(false); }} placeholder="0.50" step="0.01" />
-          <Field label="Desgaste Máq. por Hora (R$/h)" type="number" value={machinePerHour} onChange={v => { setMachinePerHour(v); setCalculated(false); }} placeholder="1.50" step="0.01" />
+          <Field label="Desgaste MÃ¡q. por Hora (R$/h)" type="number" value={machinePerHour} onChange={v => { setMachinePerHour(v); setCalculated(false); }} placeholder="1.50" step="0.01" />
         </div>
         <div style={{ background: C.white, borderRadius: 14, padding: 22, boxShadow: "0 2px 12px rgba(123,79,166,0.08)" }}>
-          <h4 style={{ color: C.primaryDark, margin: "0 0 16px", fontSize: 13, textTransform: "uppercase", letterSpacing: 1 }}>🖌️ Mão de Obra</h4>
+          <h4 style={{ color: C.primaryDark, margin: "0 0 16px", fontSize: 13, textTransform: "uppercase", letterSpacing: 1 }}>ðŸ–Œï¸ MÃ£o de Obra</h4>
           <Field label="Horas Trabalhadas (h)" type="number" value={laborHours} onChange={v => { setLaborHours(v); setCalculated(false); }} placeholder="1" step="0.5" />
           <Field label="Valor por Hora (R$/h)" type="number" value={laborRate} onChange={v => { setLaborRate(v); setCalculated(false); }} placeholder="25" />
-          <h4 style={{ color: C.primaryDark, margin: "16px 0 12px", fontSize: 13, textTransform: "uppercase", letterSpacing: 1 }}>📦 Extras & Lucro</h4>
-          <Field label="Custos Extras — tinta, lixa... (R$)" type="number" value={extraCosts} onChange={v => { setExtraCosts(v); setCalculated(false); }} placeholder="0" step="0.01" />
+          <h4 style={{ color: C.primaryDark, margin: "16px 0 12px", fontSize: 13, textTransform: "uppercase", letterSpacing: 1 }}>ðŸ“¦ Extras & Lucro</h4>
+          <Field label="Custos Extras â€” tinta, lixa... (R$)" type="number" value={extraCosts} onChange={v => { setExtraCosts(v); setCalculated(false); }} placeholder="0" step="0.01" />
           <Field label="Margem de Lucro (%)" type="number" value={margin} onChange={v => { setMargin(v); setCalculated(false); }} placeholder="50" />
         </div>
       </div>
@@ -470,17 +470,17 @@ const Calculator = () => {
         color: "#fff", fontSize: 16, fontWeight: 700, cursor: "pointer", fontFamily: "inherit",
         boxShadow: "0 4px 20px rgba(123,79,166,0.3)", transition: "background .3s"
       }}>
-        {calculated ? "✅ Calculado!" : "🧮 Calcular Preço"}
+        {calculated ? "âœ… Calculado!" : "ðŸ§® Calcular PreÃ§o"}
       </button>
 
       {result && (
         <div style={{ background: `linear-gradient(135deg, ${C.primaryDark}, ${C.primary})`, borderRadius: 14, padding: 24, marginTop: 12, color: "#fff" }}>
-          <h4 style={{ margin: "0 0 16px", fontSize: 14, textTransform: "uppercase", letterSpacing: 1, color: "rgba(255,255,255,0.9)" }}>📊 Resumo</h4>
-          {row("🧵 Filamento", result.filamentCost)}
-          {row(`⚡ Energia (${printHours}h × R$${energyPerHour}/h)`, result.energyCost)}
-          {row(`⚙️ Desgaste (${printHours}h × R$${machinePerHour}/h)`, result.machineCost)}
-          {row("🖌️ Mão de obra", result.laborCost)}
-          {result.extras > 0 && row("📦 Extras", result.extras)}
+          <h4 style={{ margin: "0 0 16px", fontSize: 14, textTransform: "uppercase", letterSpacing: 1, color: "rgba(255,255,255,0.9)" }}>ðŸ“Š Resumo</h4>
+          {row("ðŸ§µ Filamento", result.filamentCost)}
+          {row(`âš¡ Energia (${printHours}h Ã— R$${energyPerHour}/h)`, result.energyCost)}
+          {row(`âš™ï¸ Desgaste (${printHours}h Ã— R$${machinePerHour}/h)`, result.machineCost)}
+          {row("ðŸ–Œï¸ MÃ£o de obra", result.laborCost)}
+          {result.extras > 0 && row("ðŸ“¦ Extras", result.extras)}
           <div style={{ display: "flex", justifyContent: "space-between", padding: "10px 0", borderTop: "1.5px solid rgba(255,255,255,0.3)", marginTop: 4 }}>
             <span style={{ color: "rgba(255,255,255,0.9)" }}>Custo Total</span>
             <span style={{ fontWeight: 700 }}>R$ {result.totalCost.toFixed(2).replace(".", ",")}</span>
@@ -493,7 +493,7 @@ const Calculator = () => {
             display: "flex", justifyContent: "space-between", alignItems: "center",
             background: "rgba(255,255,255,0.15)", borderRadius: 12, padding: "14px 18px", marginTop: 12
           }}>
-            <span style={{ fontSize: 14, fontWeight: 600 }}>💰 Preço Sugerido</span>
+            <span style={{ fontSize: 14, fontWeight: 600 }}>ðŸ’° PreÃ§o Sugerido</span>
             <span style={{ fontSize: 26, fontWeight: 800 }}>R$ {result.finalPrice.toFixed(2).replace(".", ",")}</span>
           </div>
         </div>
@@ -502,9 +502,9 @@ const Calculator = () => {
   );
 };
 
-// ════════════════════════════════════════════════════════
-// SEÇÃO: CLIENTES
-// ════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// SEÃ‡ÃƒO: CLIENTES
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const Clients = ({ clients, addClient, updateClient, deleteClient }) => {
   const [showModal, setShowModal] = useState(false);
   const [editing, setEditing] = useState(null);
@@ -539,7 +539,7 @@ const Clients = ({ clients, addClient, updateClient, deleteClient }) => {
             padding: "10px 14px", borderRadius: 10, border: `1.5px solid ${sortAZ ? C.primary : C.lavenderMid}`,
             background: sortAZ ? C.lavender : "transparent", color: sortAZ ? C.primary : C.textMid,
             fontSize: 13, fontWeight: 700, cursor: "pointer", fontFamily: "inherit"
-          }}>A→Z</button>
+          }}>Aâ†’Z</button>
           <Btn onClick={openNew}><Icon name="plus" size={16} color="#fff" /> Novo Cliente</Btn>
         </div>
       </div>
@@ -550,7 +550,7 @@ const Clients = ({ clients, addClient, updateClient, deleteClient }) => {
         }} />
       {filtered.length === 0 ? (
         <div style={{ textAlign: "center", padding: "40px 0", color: C.textLight }}>
-          <div style={{ fontSize: 40, marginBottom: 8 }}>👤</div>
+          <div style={{ fontSize: 40, marginBottom: 8 }}>ðŸ‘¤</div>
           <p>{search ? "Nenhum cliente encontrado." : "Nenhum cliente ainda. Adicione seu primeiro!"}</p>
         </div>
       ) : (
@@ -564,10 +564,10 @@ const Clients = ({ clients, addClient, updateClient, deleteClient }) => {
               <div>
                 <div style={{ fontWeight: 700, color: C.text, fontSize: 16 }}>{c.name}</div>
                 <div style={{ color: C.textLight, fontSize: 13, marginTop: 2 }}>
-                  {c.whatsapp && <span>📱 {c.whatsapp}</span>}
-                  {c.email && <span style={{ marginLeft: 12 }}>✉️ {c.email}</span>}
+                  {c.whatsapp && <span>ðŸ“± {c.whatsapp}</span>}
+                  {c.email && <span style={{ marginLeft: 12 }}>âœ‰ï¸ {c.email}</span>}
                 </div>
-                {c.notes && <div style={{ color: C.textMid, fontSize: 12, marginTop: 4 }}>📝 {c.notes}</div>}
+                {c.notes && <div style={{ color: C.textMid, fontSize: 12, marginTop: 4 }}>ðŸ“ {c.notes}</div>}
               </div>
               <div style={{ display: "flex", gap: 8 }}>
                 {c.whatsapp && (
@@ -585,9 +585,9 @@ const Clients = ({ clients, addClient, updateClient, deleteClient }) => {
       {showModal && (
         <Modal title={editing ? "Editar Cliente" : "Novo Cliente"} onClose={() => setShowModal(false)}>
           <Field label="Nome *" value={form.name} onChange={v => setForm(f => ({ ...f, name: v }))} placeholder="Nome do cliente" />
-          <Field label="WhatsApp (só números)" value={form.whatsapp} onChange={v => setForm(f => ({ ...f, whatsapp: v }))} placeholder="11999999999" />
+          <Field label="WhatsApp (sÃ³ nÃºmeros)" value={form.whatsapp} onChange={v => setForm(f => ({ ...f, whatsapp: v }))} placeholder="11999999999" />
           <Field label="E-mail" value={form.email} onChange={v => setForm(f => ({ ...f, email: v }))} placeholder="email@exemplo.com" />
-          <Field label="Observações" value={form.notes} onChange={v => setForm(f => ({ ...f, notes: v }))} placeholder="Preferências, histórico..." />
+          <Field label="ObservaÃ§Ãµes" value={form.notes} onChange={v => setForm(f => ({ ...f, notes: v }))} placeholder="PreferÃªncias, histÃ³rico..." />
           <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 8 }}>
             <Btn variant="secondary" onClick={() => setShowModal(false)}>Cancelar</Btn>
             <Btn onClick={save} disabled={!form.name.trim()}><Icon name="check" size={15} color="#fff" /> Salvar</Btn>
@@ -598,7 +598,7 @@ const Clients = ({ clients, addClient, updateClient, deleteClient }) => {
   );
 };
 
-// ── BUSCA DE CLIENTE ─────────────────────────────────────
+// â”€â”€ BUSCA DE CLIENTE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const ClientSearch = ({ clients, value, onChange }) => {
   const [open, setOpen] = useState(false);
   const filtered = clients.filter(c => c.name.toLowerCase().includes(value.toLowerCase()));
@@ -623,7 +623,7 @@ const ClientSearch = ({ clients, value, onChange }) => {
               onMouseLeave={e => e.currentTarget.style.background = "transparent"}
             >
               <div style={{ fontWeight: 600 }}>{c.name}</div>
-              {c.whatsapp && <div style={{ fontSize: 12, color: C.textLight }}>📱 {c.whatsapp}</div>}
+              {c.whatsapp && <div style={{ fontSize: 12, color: C.textLight }}>ðŸ“± {c.whatsapp}</div>}
             </div>
           ))}
         </div>
@@ -632,9 +632,9 @@ const ClientSearch = ({ clients, value, onChange }) => {
   );
 };
 
-// ════════════════════════════════════════════════════════
-// SEÇÃO: SERVIÇOS
-// ════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// SEÃ‡ÃƒO: SERVIÃ‡OS
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const ServicesCatalog = ({ services, addService, deleteService }) => {
   const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState({ name: "", description: "", price: "" });
@@ -653,16 +653,16 @@ const ServicesCatalog = ({ services, addService, deleteService }) => {
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
         <div>
-          <h2 style={{ color: C.primaryDark, margin: 0 }}>Serviços</h2>
-          <p style={{ color: C.textMid, margin: "4px 0 0" }}>{services.length} serviço{services.length !== 1 ? "s" : ""}</p>
+          <h2 style={{ color: C.primaryDark, margin: 0 }}>ServiÃ§os</h2>
+          <p style={{ color: C.textMid, margin: "4px 0 0" }}>{services.length} serviÃ§o{services.length !== 1 ? "s" : ""}</p>
         </div>
-        <Btn onClick={() => setShowModal(true)}><Icon name="plus" size={16} color="#fff" /> Novo Serviço</Btn>
+        <Btn onClick={() => setShowModal(true)}><Icon name="plus" size={16} color="#fff" /> Novo ServiÃ§o</Btn>
       </div>
 
       {services.length === 0 ? (
         <div style={{ textAlign: "center", padding: "40px 0", color: C.textLight }}>
-          <div style={{ fontSize: 40, marginBottom: 8 }}>🎨</div>
-          <p>Nenhum serviço ainda. Adicione lixamento, pintura, montagem...</p>
+          <div style={{ fontSize: 40, marginBottom: 8 }}>ðŸŽ¨</div>
+          <p>Nenhum serviÃ§o ainda. Adicione lixamento, pintura, montagem...</p>
         </div>
       ) : (
         <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -674,7 +674,7 @@ const ServicesCatalog = ({ services, addService, deleteService }) => {
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <span style={{ fontWeight: 800, color: C.primary, fontSize: 16 }}>R$ {parseFloat(s.price).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</span>
-                <button onClick={() => { if(confirm("Remover serviço?")) deleteService(s.id); }} style={{ padding: "5px 10px", borderRadius: 8, background: C.danger, color: "#fff", border: "none", cursor: "pointer", fontSize: 13, fontWeight: 700 }}>🗑</button>
+                <button onClick={() => { if(confirm("Remover serviÃ§o?")) deleteService(s.id); }} style={{ padding: "5px 10px", borderRadius: 8, background: C.danger, color: "#fff", border: "none", cursor: "pointer", fontSize: 13, fontWeight: 700 }}>ðŸ—‘</button>
               </div>
             </div>
           ))}
@@ -682,9 +682,9 @@ const ServicesCatalog = ({ services, addService, deleteService }) => {
       )}
 
       {showModal && (
-        <Modal title="Novo Serviço" onClose={() => setShowModal(false)}>
-          <Field label="Nome do Serviço *" value={form.name} onChange={v => setForm(f => ({ ...f, name: v }))} placeholder="Ex: Lixamento, Pintura, Montagem..." />
-          <Field label="Descrição" value={form.description} onChange={v => setForm(f => ({ ...f, description: v }))} placeholder="Detalhes do serviço..." />
+        <Modal title="Novo ServiÃ§o" onClose={() => setShowModal(false)}>
+          <Field label="Nome do ServiÃ§o *" value={form.name} onChange={v => setForm(f => ({ ...f, name: v }))} placeholder="Ex: Lixamento, Pintura, Montagem..." />
+          <Field label="DescriÃ§Ã£o" value={form.description} onChange={v => setForm(f => ({ ...f, description: v }))} placeholder="Detalhes do serviÃ§o..." />
           <MoneyField label="Valor (R$) *" value={form.price} onChange={v => setForm(f => ({ ...f, price: v }))} />
           <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 8 }}>
             <Btn variant="secondary" onClick={() => setShowModal(false)}>Cancelar</Btn>
@@ -698,9 +698,9 @@ const ServicesCatalog = ({ services, addService, deleteService }) => {
   );
 };
 
-// ════════════════════════════════════════════════════════
-// SEÇÃO: PEDIDOS
-// ════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// SEÃ‡ÃƒO: PEDIDOS
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus, clients, addClient, catalog, services }) => {
 
   const [view, setView] = useState("list"); // list | edit
@@ -712,7 +712,7 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
   const [newClientForm, setNewClientForm] = useState({ name: "", whatsapp: "", email: "" });
   const [showNewModal, setShowNewModal] = useState(false);
 
-  const statuses = ["Pedido Recebido", "Em Produção", "Acabamento", "Finalizado", "Entregue"];
+  const statuses = ["Pedido Recebido", "Em ProduÃ§Ã£o", "Acabamento", "Finalizado", "Entregue"];
   const today = new Date().toISOString().split("T")[0];
   const emptyOrder = { clientName: "", description: "", orderDate: today, deliveryDate: "", status: "Pedido Recebido", notes: "", finalPrice: 0, paymentMethod: "PIX", paid: false, products: [], services: [] };
   const [newForm, setNewForm] = useState({ clientName: "", description: "", orderDate: today, deliveryDate: "", notes: "" });
@@ -726,9 +726,9 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
     await addOrder(order);
     setSaving(false);
     setShowNewModal(false);
-    // Abre edição do pedido recém criado
+    // Abre ediÃ§Ã£o do pedido recÃ©m criado
     setTimeout(() => {
-      const latest = orders[0]; // será atualizado pelo state
+      const latest = orders[0]; // serÃ¡ atualizado pelo state
     }, 100);
   };
 
@@ -782,12 +782,12 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
 
   const sendWhatsApp = (order, client) => {
     const msgs = {
-      "Pedido Recebido": `Olá ${order.clientName}! 😊 Recebemos seu pedido na LayerLab! Em breve começamos a produção. ✨`,
-      "Em Produção": `Olá ${order.clientName}! Seu pedido está em produção! 🖨️`,
-      "Acabamento": `Olá ${order.clientName}! Seu pedido está na fase de acabamento! 🎨`,
-      "Finalizado": `Olá ${order.clientName}! 🎉 Seu pedido está pronto pra entrega! 📦`,
+      "Pedido Recebido": `OlÃ¡ ${order.clientName}! ðŸ˜Š Recebemos seu pedido na LayerLab! Em breve comeÃ§amos a produÃ§Ã£o. âœ¨`,
+      "Em ProduÃ§Ã£o": `OlÃ¡ ${order.clientName}! Seu pedido estÃ¡ em produÃ§Ã£o! ðŸ–¨ï¸`,
+      "Acabamento": `OlÃ¡ ${order.clientName}! Seu pedido estÃ¡ na fase de acabamento! ðŸŽ¨`,
+      "Finalizado": `OlÃ¡ ${order.clientName}! ðŸŽ‰ Seu pedido estÃ¡ pronto pra entrega! ðŸ“¦`,
     };
-    const msg = msgs[order.status] || `Olá ${order.clientName}! Status: *${order.status}*`;
+    const msg = msgs[order.status] || `OlÃ¡ ${order.clientName}! Status: *${order.status}*`;
     const phone = client?.whatsapp?.replace(/\D/g, "") || "";
     window.open(`https://wa.me/55${phone}?text=${encodeURIComponent(msg)}`, "_blank");
   };
@@ -800,11 +800,11 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
     return (
     <div>
       <div style={{ fontSize: 12, fontWeight: 600, color: C.textMid, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 10 }}>
-        {isProduct ? "Adicionar Produto do Catálogo" : "Adicionar Serviço"}
+        {isProduct ? "Adicionar Produto do CatÃ¡logo" : "Adicionar ServiÃ§o"}
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 8, maxHeight: 200, overflowY: "auto", marginBottom: 16 }}>
         {sourceItems.length === 0 ? (
-          <p style={{ color: C.textLight, fontSize: 13 }}>{isProduct ? "Nenhum produto no catálogo." : "Nenhum serviço cadastrado."}</p>
+          <p style={{ color: C.textLight, fontSize: 13 }}>{isProduct ? "Nenhum produto no catÃ¡logo." : "Nenhum serviÃ§o cadastrado."}</p>
         ) : sourceItems.map(item => (
           <div key={item.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 12px", borderRadius: 10, background: C.lavender, border: `1px solid ${C.lavenderMid}` }}>
             <div>
@@ -827,7 +827,7 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
                   <button onClick={() => changeQty(type, item.id, -1)} style={{ width: 24, height: 24, borderRadius: 6, border: "none", background: C.lavenderMid, cursor: "pointer", fontWeight: 700, fontSize: 14 }}>-</button>
                   <span style={{ fontWeight: 700 }}>{item.qty}</span>
                   <button onClick={() => changeQty(type, item.id, 1)} style={{ width: 24, height: 24, borderRadius: 6, border: "none", background: C.lavenderMid, cursor: "pointer", fontWeight: 700, fontSize: 14 }}>+</button>
-                  <span style={{ fontSize: 12, color: C.textLight }}>× R$ {parseFloat(item.price).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</span>
+                  <span style={{ fontSize: 12, color: C.textLight }}>Ã— R$ {parseFloat(item.price).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</span>
                 </div>
               </div>
               <div style={{ textAlign: "right" }}>
@@ -841,7 +841,7 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
     </div>
   );};
 
-  // ── TELA DE EDIÇÃO ──
+  // â”€â”€ TELA DE EDIÃ‡ÃƒO â”€â”€
   if (view === "edit" && editingOrder) {
     return (
       <div style={{ display: "flex", flexDirection: "column", minHeight: "calc(100vh - 140px)" }}>
@@ -855,9 +855,9 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
         {/* Abas */}
         <div style={{ display: "flex", gap: 4, marginBottom: 20, borderBottom: "2px solid rgba(201,168,255,0.15)" }}>
           {[
-            { id: "info", label: "📋 Informações" },
-            { id: "products", label: "🖨️ Produtos" },
-            { id: "services", label: "🎨 Serviços" },
+            { id: "info", label: "ðŸ“‹ InformaÃ§Ãµes" },
+            { id: "products", label: "ðŸ–¨ï¸ Produtos" },
+            { id: "services", label: "ðŸŽ¨ ServiÃ§os" },
           ].map(tab => (
             <button key={tab.id} onClick={() => setActiveTab(tab.id)} style={{
               padding: "8px 14px", borderRadius: "8px 8px 0 0", border: "none", cursor: "pointer",
@@ -870,72 +870,72 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
           ))}
         </div>
 
-        {/* Conteúdo da aba */}
+        {/* ConteÃºdo da aba */}
         <div style={{ flex: 1, marginBottom: 80 }}>
           {activeTab === "info" && (
             <div>
               <ClientSearch clients={clients} value={editingOrder.clientName} onChange={v => setEditingOrder(o => ({ ...o, clientName: v }))} />
-              <Field label="Descrição" value={editingOrder.description||""} onChange={v => setEditingOrder(o => ({ ...o, description: v }))} placeholder="Detalhes, referências, cores..." />
+              <Field label="DescriÃ§Ã£o" value={editingOrder.description||""} onChange={v => setEditingOrder(o => ({ ...o, description: v }))} placeholder="Detalhes, referÃªncias, cores..." />
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                 <Field label="Data do Pedido" type="date" value={editingOrder.orderDate||""} onChange={v => setEditingOrder(o => ({ ...o, orderDate: v }))} />
                 <Field label="Prazo de Entrega" type="date" value={editingOrder.deliveryDate||""} onChange={v => setEditingOrder(o => ({ ...o, deliveryDate: v }))} />
               </div>
               <Select label="Status" value={editingOrder.status} onChange={v => {
-                if (v === "Entregue" && !editingOrder.paid) { alert("⚠️ Pagamento em aberto! Confirme antes de entregar."); return; }
+                if (v === "Entregue" && !editingOrder.paid) { alert("âš ï¸ Pagamento em aberto! Confirme antes de entregar."); return; }
                 setEditingOrder(o => ({ ...o, status: v }));
               }} options={statuses} />
-              <Select label="Forma de Pagamento" value={editingOrder.paymentMethod||"PIX"} onChange={v => setEditingOrder(o => ({ ...o, paymentMethod: v }))} options={["PIX", "Cartão de Crédito", "Cartão de Débito", "Dinheiro", "Transferência", "A Combinar"]} />
+              <Select label="Forma de Pagamento" value={editingOrder.paymentMethod||"PIX"} onChange={v => setEditingOrder(o => ({ ...o, paymentMethod: v }))} options={["PIX", "CartÃ£o de CrÃ©dito", "CartÃ£o de DÃ©bito", "Dinheiro", "TransferÃªncia", "A Combinar"]} />
               <div onClick={() => setEditingOrder(o => ({ ...o, paid: !o.paid }))} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14, cursor: "pointer", padding: "10px 14px", borderRadius: 10, background: editingOrder.paid ? "#D4EDDA" : "#FFF9E6", border: `1.5px solid ${editingOrder.paid ? "#C8E6C9" : "#FFE082"}` }}>
                 <div style={{ width: 22, height: 22, borderRadius: 6, background: editingOrder.paid ? "#2E7D32" : "transparent", border: `2px solid ${editingOrder.paid ? "#2E7D32" : "#B07800"}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  {editingOrder.paid && <span style={{ color: "#fff", fontSize: 13 }}>✓</span>}
+                  {editingOrder.paid && <span style={{ color: "#fff", fontSize: 13 }}>âœ“</span>}
                 </div>
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: 14, color: editingOrder.paid ? "#2E7D32" : "#B07800" }}>{editingOrder.paid ? "💰 Pagamento recebido" : "⏳ Aguardando pagamento"}</div>
+                  <div style={{ fontWeight: 700, fontSize: 14, color: editingOrder.paid ? "#2E7D32" : "#B07800" }}>{editingOrder.paid ? "ðŸ’° Pagamento recebido" : "â³ Aguardando pagamento"}</div>
                   <div style={{ fontSize: 11, color: C.textLight }}>Marque quando o cliente pagar</div>
                 </div>
               </div>
-              <Field label="Observações" value={editingOrder.notes||""} onChange={v => setEditingOrder(o => ({ ...o, notes: v }))} placeholder="Anotações internas..." />
+              <Field label="ObservaÃ§Ãµes" value={editingOrder.notes||""} onChange={v => setEditingOrder(o => ({ ...o, notes: v }))} placeholder="AnotaÃ§Ãµes internas..." />
             </div>
           )}
           {activeTab === "products" && <CatalogPicker type="products" />}
           {activeTab === "services" && <CatalogPicker type="services" />}
         </div>
 
-        {/* Botões fixos na base */}
+        {/* BotÃµes fixos na base */}
         <div style={{ position: "fixed", bottom: 60, left: 0, right: 0, zIndex: 100, display: "flex", justifyContent: "center" }}>
           <div style={{ display: "flex", gap: 10, padding: "12px 20px", background: "rgba(20,10,48,0.95)", backdropFilter: "blur(16px)", borderTop: "1px solid rgba(201,168,255,0.15)", borderRadius: "16px 16px 0 0", width: "100%", maxWidth: 600, boxSizing: "border-box" }}>
             <button onClick={() => {
             const client = clients.find(c => c.name === editingOrder.clientName);
             const items = [...(editingOrder.products||[]), ...(editingOrder.services||[])];
             const itemsList = items.length > 0
-              ? items.map(i => `  • ${i.name} (${i.qty}x) — R$ ${(parseFloat(i.price)*i.qty).toLocaleString("pt-BR",{minimumFractionDigits:2})}`).join("\n")
+              ? items.map(i => `  â€¢ ${i.name} (${i.qty}x) â€” R$ ${(parseFloat(i.price)*i.qty).toLocaleString("pt-BR",{minimumFractionDigits:2})}`).join("\n")
               : "  (sem itens)";
-            const msg = `Olá ${editingOrder.clientName}! 😊\n\nSegue o resumo do seu pedido na *LayerLab* ✨\n\n`
-              + `📋 *Pedido:* ${editingOrder.description || "Impressão 3D"}\n`
-              + `📅 *Data:* ${editingOrder.orderDate || "—"}\n`
-              + (editingOrder.deliveryDate ? `⏰ *Prazo de entrega:* ${editingOrder.deliveryDate}\n` : "")
-              + `\n🛍️ *Itens:*\n${itemsList}\n`
-              + `\n💰 *Total: R$ ${total.toLocaleString("pt-BR",{minimumFractionDigits:2})}*\n`
-              + `💳 *Pagamento:* ${editingOrder.paymentMethod || "PIX"}\n`
-              + `\nQualquer dúvida é só chamar! 💜\n_LayerLab — Gestão de Impressão 3D_`;
+            const msg = `OlÃ¡ ${editingOrder.clientName}! ðŸ˜Š\n\nSegue o resumo do seu pedido na *LayerLab* âœ¨\n\n`
+              + `ðŸ“‹ *Pedido:* ${editingOrder.description || "ImpressÃ£o 3D"}\n`
+              + `ðŸ“… *Data:* ${editingOrder.orderDate || "â€”"}\n`
+              + (editingOrder.deliveryDate ? `â° *Prazo de entrega:* ${editingOrder.deliveryDate}\n` : "")
+              + `\nðŸ›ï¸ *Itens:*\n${itemsList}\n`
+              + `\nðŸ’° *Total: R$ ${total.toLocaleString("pt-BR",{minimumFractionDigits:2})}*\n`
+              + `ðŸ’³ *Pagamento:* ${editingOrder.paymentMethod || "PIX"}\n`
+              + `\nQualquer dÃºvida Ã© sÃ³ chamar! ðŸ’œ\n_LayerLab â€” GestÃ£o de ImpressÃ£o 3D_`;
             const phone = client?.whatsapp?.replace(/\D/g,"") || "";
             const url = `https://wa.me/55${phone}?text=${encodeURIComponent(msg)}`;
             window.open(url, "_blank");
           }} style={{ flex: 1, padding: "10px", borderRadius: 10, border: "1.5px solid rgba(201,168,255,0.4)", background: "rgba(123,79,166,0.15)", color: "#C9A8FF", fontSize: 13, fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>
-            🧾 Faturar
+            ðŸ§¾ Faturar
           </button>
           <button onClick={async () => { await saveEdit(); }} disabled={saving} style={{ flex: 1, padding: "10px", borderRadius: 10, border: "none", background: "linear-gradient(135deg, #7B4FA6, #9B6DC5)", color: "#fff", fontSize: 13, fontWeight: 700, cursor: "pointer", fontFamily: "inherit", opacity: saving ? 0.7 : 1 }}>
-            {saving ? "..." : "💾 Salvar"}
+            {saving ? "..." : "ðŸ’¾ Salvar"}
           </button>
           <button onClick={() => setView("list")} style={{ flex: 1, padding: "10px", borderRadius: 10, border: "1.5px solid rgba(201,168,255,0.2)", background: "transparent", color: "rgba(201,168,255,0.6)", fontSize: 13, fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>
-            ✕ Sair
+            âœ• Sair
           </button>
         </div>
       </div>
     );
   }
 
-  // ── LISTA DE PEDIDOS ──
+  // â”€â”€ LISTA DE PEDIDOS â”€â”€
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
@@ -958,7 +958,7 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
 
       {filtered.length === 0 ? (
         <div style={{ textAlign: "center", padding: "40px 0", color: C.textLight }}>
-          <div style={{ fontSize: 40, marginBottom: 8 }}>📋</div>
+          <div style={{ fontSize: 40, marginBottom: 8 }}>ðŸ“‹</div>
           <p>{filterStatus === "Todos" ? "Nenhum pedido ainda." : `Nenhum pedido com status "${filterStatus}".`}</p>
         </div>
       ) : (
@@ -969,9 +969,9 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
               <div key={o.id} onClick={() => openEdit(o)} style={{ background: C.white, borderRadius: 14, padding: "16px 18px", boxShadow: "0 1px 8px rgba(123,79,166,0.08)", cursor: "pointer" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontWeight: 700, fontSize: 16, color: C.text }}>{o.clientName || "—"}</div>
+                    <div style={{ fontWeight: 700, fontSize: 16, color: C.text }}>{o.clientName || "â€”"}</div>
                     <div style={{ color: C.textLight, fontSize: 12, marginTop: 2 }}>
-                      📅 {o.orderDate}{o.deliveryDate ? ` · ⏰ ${o.deliveryDate}` : ""}
+                      ðŸ“… {o.orderDate}{o.deliveryDate ? ` Â· â° ${o.deliveryDate}` : ""}
                     </div>
                     {o.description && <div style={{ color: C.textMid, fontSize: 13, marginTop: 4 }}>{o.description}</div>}
                     <div style={{ marginTop: 8, display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
@@ -982,16 +982,16 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
                         </span>
                       )}
                       <span style={{ fontSize: 12, fontWeight: 700, color: o.paid ? "#2E7D32" : "#B07800", background: o.paid ? "#D4EDDA" : "#FFF3CD", padding: "2px 8px", borderRadius: 12 }}>
-                        {o.paid ? "✅ Pago" : "💰 Em aberto"}
+                        {o.paid ? "âœ… Pago" : "ðŸ’° Em aberto"}
                       </span>
                     </div>
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "flex-end" }}>
                     <button onClick={e => { e.stopPropagation(); const c = clients.find(cl => cl.name === o.clientName); sendWhatsApp(o, c); }} style={{ padding: "5px 10px", borderRadius: 8, background: "#25D366", color: "#fff", border: "none", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>
-                      💬
+                      ðŸ’¬
                     </button>
                     <button onClick={e => { e.stopPropagation(); del(o.id); }} style={{ padding: "5px 10px", borderRadius: 8, background: C.danger, color: "#fff", border: "none", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
-                      🗑
+                      ðŸ—‘
                     </button>
                   </div>
                 </div>
@@ -1008,7 +1008,7 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
           {!showNewClient && newForm.clientName && !clients.find(c => c.name.toLowerCase() === newForm.clientName.toLowerCase()) && (
             <button onClick={() => { setNewClientForm({ name: newForm.clientName, whatsapp: "", email: "" }); setShowNewClient(true); }}
               style={{ marginBottom: 14, padding: "8px 14px", borderRadius: 10, border: `1.5px dashed ${C.primary}`, background: C.lavender, color: C.primary, fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", width: "100%", boxSizing: "border-box" }}>
-              ➕ Cadastrar "{newForm.clientName}" como novo cliente
+              âž• Cadastrar "{newForm.clientName}" como novo cliente
             </button>
           )}
           {showNewClient && (
@@ -1023,12 +1023,12 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
               </div>
             </div>
           )}
-          <Field label="Descrição" value={newForm.description} onChange={v => setNewForm(f => ({ ...f, description: v }))} placeholder="Detalhes do pedido..." />
+          <Field label="DescriÃ§Ã£o" value={newForm.description} onChange={v => setNewForm(f => ({ ...f, description: v }))} placeholder="Detalhes do pedido..." />
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
             <Field label="Data" type="date" value={newForm.orderDate} onChange={v => setNewForm(f => ({ ...f, orderDate: v }))} />
             <Field label="Prazo" type="date" value={newForm.deliveryDate} onChange={v => setNewForm(f => ({ ...f, deliveryDate: v }))} />
           </div>
-          <Field label="Observações" value={newForm.notes} onChange={v => setNewForm(f => ({ ...f, notes: v }))} placeholder="Anotações..." />
+          <Field label="ObservaÃ§Ãµes" value={newForm.notes} onChange={v => setNewForm(f => ({ ...f, notes: v }))} placeholder="AnotaÃ§Ãµes..." />
           <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 8 }}>
             <Btn variant="secondary" onClick={() => setShowNewModal(false)}>Cancelar</Btn>
             <Btn onClick={async () => {
@@ -1047,19 +1047,19 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
   );
 };
 
-// ════════════════════════════════════════════════════════
-// SEÇÃO: CATÁLOGO
-// ════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// SEÃ‡ÃƒO: CATÃLOGO
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const Catalog = ({ catalog, addCatalog, updateCatalog, deleteCatalog }) => {
   const [showModal, setShowModal] = useState(false);
   const [editing, setEditing] = useState(null);
   const [saving, setSaving] = useState(false);
-  const emptyForm = { name: "", description: "", price: "", category: "Decoração", inStock: "1", imageUrl: "" };
+  const emptyForm = { name: "", description: "", price: "", category: "DecoraÃ§Ã£o", inStock: "1", imageUrl: "" };
   const [form, setForm] = useState(emptyForm);
   const [shareText, setShareText] = useState("");
 
   const openNew = () => { setForm(emptyForm); setEditing(null); setShowModal(true); };
-  const openEdit = (p) => { setForm({ name: p.name||"", description: p.description||"", price: p.price||"", category: p.category||"Decoração", inStock: p.inStock||"1", imageUrl: p.imageUrl||"" }); setEditing(p.id); setShowModal(true); };
+  const openEdit = (p) => { setForm({ name: p.name||"", description: p.description||"", price: p.price||"", category: p.category||"DecoraÃ§Ã£o", inStock: p.inStock||"1", imageUrl: p.imageUrl||"" }); setEditing(p.id); setShowModal(true); };
   const save = async () => {
     if (!form.name.trim()) return;
     setSaving(true);
@@ -1070,8 +1070,8 @@ const Catalog = ({ catalog, addCatalog, updateCatalog, deleteCatalog }) => {
   const del = async (id) => { if (confirm("Remover item?")) await deleteCatalog(id); };
 
   const generatePortfolio = () => {
-    const text = catalog.map(p => `✨ *${p.name}*\n${p.description}\nPreço: R$ ${parseFloat(p.price).toFixed(2).replace(".", ",")}\n`).join("\n");
-    const msg = `🐱 *LayerLab* — Portfólio de Produtos\n\n${text}\nPedidos e informações pelo WhatsApp! 💜`;
+    const text = catalog.map(p => `âœ¨ *${p.name}*\n${p.description}\nPreÃ§o: R$ ${parseFloat(p.price).toFixed(2).replace(".", ",")}\n`).join("\n");
+    const msg = `ðŸ± *LayerLab* â€” PortfÃ³lio de Produtos\n\n${text}\nPedidos e informaÃ§Ãµes pelo WhatsApp! ðŸ’œ`;
     setShareText(msg);
   };
 
@@ -1079,40 +1079,40 @@ const Catalog = ({ catalog, addCatalog, updateCatalog, deleteCatalog }) => {
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
         <div>
-          <h2 style={{ color: C.primaryDark, margin: 0 }}>Catálogo & Portfólio</h2>
+          <h2 style={{ color: C.primaryDark, margin: 0 }}>CatÃ¡logo & PortfÃ³lio</h2>
           <p style={{ color: C.textMid, margin: "4px 0 0" }}>{catalog.length} produto{catalog.length !== 1 ? "s" : ""}</p>
         </div>
         <div style={{ display: "flex", gap: 8 }}>
-          {catalog.length > 0 && <Btn variant="secondary" onClick={generatePortfolio}>📤 Gerar Portfólio</Btn>}
+          {catalog.length > 0 && <Btn variant="secondary" onClick={generatePortfolio}>ðŸ“¤ Gerar PortfÃ³lio</Btn>}
           <Btn onClick={openNew}><Icon name="plus" size={16} color="#fff" /> Adicionar</Btn>
         </div>
       </div>
       {shareText && (
         <div style={{ background: C.lavender, borderRadius: 12, padding: 16, marginBottom: 16 }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: C.primaryDark, marginBottom: 8 }}>📱 Portfólio gerado — copie e envie pelo WhatsApp:</div>
+          <div style={{ fontSize: 13, fontWeight: 600, color: C.primaryDark, marginBottom: 8 }}>ðŸ“± PortfÃ³lio gerado â€” copie e envie pelo WhatsApp:</div>
           <textarea readOnly value={shareText} rows={8}
             style={{ width: "100%", borderRadius: 8, border: "none", background: C.white, padding: 12, fontSize: 12, fontFamily: "monospace", boxSizing: "border-box", resize: "vertical" }} />
           <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
-            <Btn size="sm" onClick={() => { navigator.clipboard.writeText(shareText); }}>📋 Copiar</Btn>
+            <Btn size="sm" onClick={() => { navigator.clipboard.writeText(shareText); }}>ðŸ“‹ Copiar</Btn>
             <Btn variant="secondary" size="sm" onClick={() => setShareText("")}>Fechar</Btn>
           </div>
         </div>
       )}
       {catalog.length === 0 ? (
         <div style={{ textAlign: "center", padding: "40px 0", color: C.textLight }}>
-          <div style={{ fontSize: 40, marginBottom: 8 }}>🛍️</div>
-          <p>Nenhum produto ainda. Adicione peças prontas pro catálogo!</p>
+          <div style={{ fontSize: 40, marginBottom: 8 }}>ðŸ›ï¸</div>
+          <p>Nenhum produto ainda. Adicione peÃ§as prontas pro catÃ¡logo!</p>
         </div>
       ) : (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 16 }}>
           {catalog.map(p => (
             <div key={p.id} style={{ background: C.white, borderRadius: 14, overflow: "hidden", boxShadow: "0 2px 10px rgba(123,79,166,0.09)" }}>
               <div style={{ height: 140, background: `linear-gradient(135deg, ${C.lavender}, ${C.lavenderMid})`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 48 }}>
-                {p.imageUrl ? <img src={p.imageUrl} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : "🖨️"}
+                {p.imageUrl ? <img src={p.imageUrl} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : "ðŸ–¨ï¸"}
               </div>
               <div style={{ padding: "14px 16px" }}>
                 <div style={{ fontWeight: 700, color: C.text, fontSize: 15 }}>{p.name}</div>
-                <div style={{ fontSize: 12, color: C.textLight, marginTop: 2 }}>📂 {p.category} · 📦 Estoque: {p.inStock}</div>
+                <div style={{ fontSize: 12, color: C.textLight, marginTop: 2 }}>ðŸ“‚ {p.category} Â· ðŸ“¦ Estoque: {p.inStock}</div>
                 {p.description && <div style={{ fontSize: 12, color: C.textMid, marginTop: 6 }}>{p.description}</div>}
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 12 }}>
                   <span style={{ fontSize: 18, fontWeight: 800, color: C.primary }}>R$ {parseFloat(p.price).toFixed(2).replace(".", ",")}</span>
@@ -1128,13 +1128,13 @@ const Catalog = ({ catalog, addCatalog, updateCatalog, deleteCatalog }) => {
       )}
       {showModal && (
         <Modal title={editing ? "Editar Produto" : "Novo Produto"} onClose={() => setShowModal(false)}>
-          <Field label="Nome do Produto *" value={form.name} onChange={v => setForm(f => ({ ...f, name: v }))} placeholder="Ex: Miniatura de dragão" />
-          <Field label="Descrição" value={form.description} onChange={v => setForm(f => ({ ...f, description: v }))} placeholder="Material, tamanho, cores disponíveis..." />
+          <Field label="Nome do Produto *" value={form.name} onChange={v => setForm(f => ({ ...f, name: v }))} placeholder="Ex: Miniatura de dragÃ£o" />
+          <Field label="DescriÃ§Ã£o" value={form.description} onChange={v => setForm(f => ({ ...f, description: v }))} placeholder="Material, tamanho, cores disponÃ­veis..." />
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-            <MoneyField label="Preço (R$)" value={form.price} onChange={v => setForm(f => ({ ...f, price: v }))} />
+            <MoneyField label="PreÃ§o (R$)" value={form.price} onChange={v => setForm(f => ({ ...f, price: v }))} />
             <Field label="Estoque" type="number" value={form.inStock} onChange={v => setForm(f => ({ ...f, inStock: v }))} min="0" />
           </div>
-          <Select label="Categoria" value={form.category} onChange={v => setForm(f => ({ ...f, category: v }))} options={["Decoração", "Miniatura", "Funcional", "Personalizado", "Jogo & RPG", "Infantil", "Outro"]} />
+          <Select label="Categoria" value={form.category} onChange={v => setForm(f => ({ ...f, category: v }))} options={["DecoraÃ§Ã£o", "Miniatura", "Funcional", "Personalizado", "Jogo & RPG", "Infantil", "Outro"]} />
           <Field label="URL da Imagem (opcional)" value={form.imageUrl} onChange={v => setForm(f => ({ ...f, imageUrl: v }))} placeholder="https://..." />
           <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 8 }}>
             <Btn variant="secondary" onClick={() => setShowModal(false)}>Cancelar</Btn>
@@ -1147,7 +1147,7 @@ const Catalog = ({ catalog, addCatalog, updateCatalog, deleteCatalog }) => {
 };
 
 
-// ── SUPABASE ─────────────────────────────────────────────
+// â”€â”€ SUPABASE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const SUPA_URL = "https://jforxecmnsflbzvxdfsr.supabase.co";
 const SUPA_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impmb3J4ZWNtbnNmbGJ6dnhkZnNyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMjgxMDQsImV4cCI6MjA5NzkwNDEwNH0.2BjpATxVU_qQLYyLib3Akwt6JnkEFBNyxMgSJhG1SLs";
 
@@ -1180,7 +1180,7 @@ const supa = {
   }
 };
 
-// ── FUNDO DECORATIVO ─────────────────────────────────────
+// â”€â”€ FUNDO DECORATIVO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const AppBackground = () => (
   <svg style={{ position: "fixed", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 0 }} viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
     <defs>
@@ -1200,12 +1200,12 @@ const AppBackground = () => (
     <rect width="1200" height="800" fill="url(#g1)" />
     <rect width="1200" height="800" fill="url(#g2)" />
     <rect width="1200" height="800" fill="url(#g3)" />
-    {/* Grid de camadas — linhas horizontais finas */}
+    {/* Grid de camadas â€” linhas horizontais finas */}
     {Array.from({ length: 28 }).map((_, i) => (
       <line key={`h${i}`} x1="0" y1={i * 30} x2="1200" y2={i * 30}
         stroke="#9B6DC5" strokeOpacity={0.04} strokeWidth="1" />
     ))}
-    {/* Erlenmeyer decorativo grande — fundo direito */}
+    {/* Erlenmeyer decorativo grande â€” fundo direito */}
     <g transform="translate(950, 80)" opacity="0.06">
       <path d="M60 0 L60 140 L10 280 L180 280 L130 140 L130 0 Z" fill="none" stroke="#C9A8FF" strokeWidth="3" />
       <rect x="50" y="-18" width="80" height="22" rx="8" fill="#C9A8FF" />
@@ -1213,7 +1213,7 @@ const AppBackground = () => (
         <line key={i} x1={134} y1={20 + i*22} x2={170} y2={20 + i*22} stroke="#C9A8FF" strokeWidth="4" strokeLinecap="round" opacity={1-i*0.14} />
       ))}
     </g>
-    {/* Erlenmeyer decorativo pequeno — fundo esquerdo */}
+    {/* Erlenmeyer decorativo pequeno â€” fundo esquerdo */}
     <g transform="translate(60, 500)" opacity="0.05">
       <path d="M30 0 L30 70 L5 140 L90 140 L65 70 L65 0 Z" fill="none" stroke="#C9A8FF" strokeWidth="2" />
       <rect x="24" y="-10" width="42" height="12" rx="4" fill="#C9A8FF" />
@@ -1221,21 +1221,21 @@ const AppBackground = () => (
         <line key={i} x1={67} y1={10 + i*16} x2={88} y2={10 + i*16} stroke="#C9A8FF" strokeWidth="3" strokeLinecap="round" opacity={1-i*0.2} />
       ))}
     </g>
-    {/* Pontos de faísca espalhados */}
+    {/* Pontos de faÃ­sca espalhados */}
     {[[120,80],[400,40],[800,160],[1100,300],[200,620],[700,700],[1050,600]].map(([x,y],i) => (
       <g key={i}>
         <line x1={x} y1={y-6} x2={x} y2={y+6} stroke="#C9A8FF" strokeWidth="1.5" strokeOpacity="0.25" />
         <line x1={x-6} y1={y} x2={x+6} y2={y} stroke="#C9A8FF" strokeWidth="1.5" strokeOpacity="0.25" />
       </g>
     ))}
-    {/* Círculos flutuantes */}
+    {/* CÃ­rculos flutuantes */}
     <circle cx="350" cy="650" r="80" fill="none" stroke="#9B6DC5" strokeOpacity="0.06" strokeWidth="1.5" />
     <circle cx="350" cy="650" r="50" fill="none" stroke="#9B6DC5" strokeOpacity="0.04" strokeWidth="1" />
     <circle cx="900" cy="200" r="120" fill="none" stroke="#9B6DC5" strokeOpacity="0.05" strokeWidth="1.5" />
   </svg>
 );
 
-// ── TELA DE LOGIN ─────────────────────────────────────────
+// â”€â”€ TELA DE LOGIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const LoginScreen = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
@@ -1264,7 +1264,7 @@ const LoginScreen = ({ onLogin }) => {
         setError("E-mail ou senha incorretos.");
       }
     } catch {
-      setError("Erro de conexão. Tente novamente.");
+      setError("Erro de conexÃ£o. Tente novamente.");
     }
     setLoading(false);
   };
@@ -1285,7 +1285,7 @@ const LoginScreen = ({ onLogin }) => {
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, marginBottom: 32 }}>
           <Logo dark />
           <div style={{ fontSize: 12, color: "rgba(201,168,255,0.5)", letterSpacing: 2, textTransform: "uppercase", fontWeight: 600 }}>
-            Gestão de Impressão 3D
+            GestÃ£o de ImpressÃ£o 3D
           </div>
         </div>
 
@@ -1311,7 +1311,7 @@ const LoginScreen = ({ onLogin }) => {
               onKeyDown={e => e.key === "Enter" && tryLogin()}
             />
             <button onClick={() => setShowPass(v => !v)} style={{ position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)", background: "none", border: "none", cursor: "pointer", color: "rgba(201,168,255,0.5)", fontSize: 16, padding: 0 }}>
-              {showPass ? "🙈" : "👁️"}
+              {showPass ? "ðŸ™ˆ" : "ðŸ‘ï¸"}
             </button>
           </div>
         </div>
@@ -1324,7 +1324,7 @@ const LoginScreen = ({ onLogin }) => {
             display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
             transition: "all .2s"
           }}>
-            {remember && <span style={{ color: "#fff", fontSize: 13, lineHeight: 1 }}>✓</span>}
+            {remember && <span style={{ color: "#fff", fontSize: 13, lineHeight: 1 }}>âœ“</span>}
           </div>
           <span style={{ fontSize: 13, color: "rgba(201,168,255,0.7)", fontWeight: 500 }}>Lembrar meus dados</span>
         </div>
@@ -1345,16 +1345,16 @@ const LoginScreen = ({ onLogin }) => {
         </button>
 
         <div style={{ textAlign: "center", marginTop: 20, fontSize: 11, color: "rgba(201,168,255,0.3)" }}>
-          LayerLab ✦ Acesso Restrito
+          LayerLab âœ¦ Acesso Restrito
         </div>
       </div>
     </div>
   );
 };
 
-// ════════════════════════════════════════════════════════
-// SEÇÃO: INSUMOS
-// ════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// SEÃ‡ÃƒO: INSUMOS
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const CATEGORIES_INSUMOS = ["Impressora", "Filamento", "Tinta & Primer", "Ferramentas", "Embalagem", "Acabamento", "Equipamento", "Outro"];
 
 const Supplies = ({ supplies, addSupply, deleteSupply }) => {
@@ -1382,7 +1382,7 @@ const Supplies = ({ supplies, addSupply, deleteSupply }) => {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
         <div>
           <h2 style={{ color: C.primaryDark, margin: 0 }}>Insumos & Investimentos</h2>
-          <p style={{ color: C.textMid, margin: "4px 0 0", fontSize: 13 }}>Tudo que você já gastou no negócio</p>
+          <p style={{ color: C.textMid, margin: "4px 0 0", fontSize: 13 }}>Tudo que vocÃª jÃ¡ gastou no negÃ³cio</p>
         </div>
         <Btn onClick={() => setShowModal(true)}><Icon name="plus" size={16} color="#fff" /> Adicionar</Btn>
       </div>
@@ -1398,13 +1398,13 @@ const Supplies = ({ supplies, addSupply, deleteSupply }) => {
           <div style={{ fontSize: 28, fontWeight: 900, marginTop: 2 }}>R$ {totalSpent.toFixed(2).replace(".", ",")}</div>
           <div style={{ fontSize: 12, opacity: 0.7, marginTop: 2 }}>{supplies.length} item{supplies.length !== 1 ? "s" : ""} cadastrado{supplies.length !== 1 ? "s" : ""}</div>
         </div>
-        <div style={{ fontSize: 36 }}>📦</div>
+        <div style={{ fontSize: 36 }}>ðŸ“¦</div>
       </div>
 
       {supplies.length === 0 ? (
         <div style={{ textAlign: "center", padding: "40px 0", color: C.textLight }}>
-          <div style={{ fontSize: 40, marginBottom: 8 }}>🧾</div>
-          <p>Nenhum insumo ainda. Cadastre tudo que você já comprou!</p>
+          <div style={{ fontSize: 40, marginBottom: 8 }}>ðŸ§¾</div>
+          <p>Nenhum insumo ainda. Cadastre tudo que vocÃª jÃ¡ comprou!</p>
         </div>
       ) : (
         byCategory.map(({ cat, items }) => (
@@ -1419,8 +1419,8 @@ const Supplies = ({ supplies, addSupply, deleteSupply }) => {
                 <div>
                   <div style={{ fontWeight: 600, color: C.text }}>{item.name}</div>
                   <div style={{ fontSize: 12, color: C.textLight, marginTop: 2 }}>
-                    Qtd: {item.quantity} × R$ {parseFloat(item.price).toFixed(2).replace(".", ",")}
-                    {item.notes && <span style={{ marginLeft: 8 }}>· {item.notes}</span>}
+                    Qtd: {item.quantity} Ã— R$ {parseFloat(item.price).toFixed(2).replace(".", ",")}
+                    {item.notes && <span style={{ marginLeft: 8 }}>Â· {item.notes}</span>}
                   </div>
                 </div>
                 <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
@@ -1440,10 +1440,10 @@ const Supplies = ({ supplies, addSupply, deleteSupply }) => {
           <Field label="Nome do Item *" value={form.name} onChange={v => setForm(f => ({ ...f, name: v }))} placeholder="Ex: Rolo de PLA Branco 1kg" />
           <Select label="Categoria" value={form.category} onChange={v => setForm(f => ({ ...f, category: v }))} options={CATEGORIES_INSUMOS} />
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-            <MoneyField label="Preço Unitário (R$) *" value={form.price} onChange={v => setForm(f => ({ ...f, price: v }))} />
+            <MoneyField label="PreÃ§o UnitÃ¡rio (R$) *" value={form.price} onChange={v => setForm(f => ({ ...f, price: v }))} />
             <Field label="Quantidade" type="number" value={form.quantity} onChange={v => setForm(f => ({ ...f, quantity: v }))} placeholder="1" min="1" />
           </div>
-          <Field label="Observações" value={form.notes} onChange={v => setForm(f => ({ ...f, notes: v }))} placeholder="Ex: Comprado na Amazon" />
+          <Field label="ObservaÃ§Ãµes" value={form.notes} onChange={v => setForm(f => ({ ...f, notes: v }))} placeholder="Ex: Comprado na Amazon" />
           <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 8 }}>
             <Btn variant="secondary" onClick={() => setShowModal(false)}>Cancelar</Btn>
             <Btn onClick={save} disabled={!form.name.trim() || !form.price || saving}>
@@ -1456,9 +1456,9 @@ const Supplies = ({ supplies, addSupply, deleteSupply }) => {
   );
 };
 
-// ════════════════════════════════════════════════════════
-// SEÇÃO: FINANCEIRO
-// ════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// SEÃ‡ÃƒO: FINANCEIRO
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const Financial = ({ orders, supplies }) => {
   const today = new Date();
   const paidOrders = orders.filter(o => o.paid);
@@ -1478,7 +1478,7 @@ const Financial = ({ orders, supplies }) => {
   }).sort((a, b) => (b.daysLate||0) - (a.daysLate||0));
 
   const payerMap = {};
-  paidOrders.forEach(o => { payerMap[o.clientName||"—"] = (payerMap[o.clientName||"—"]||0) + (parseFloat(o.finalPrice)||0); });
+  paidOrders.forEach(o => { payerMap[o.clientName||"â€”"] = (payerMap[o.clientName||"â€”"]||0) + (parseFloat(o.finalPrice)||0); });
   const payers = Object.entries(payerMap).sort((a,b) => b[1]-a[1]);
 
   const generatePDF = () => {
@@ -1489,7 +1489,7 @@ const Financial = ({ orders, supplies }) => {
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"/>
-<title>LayerLab — Relatório Financeiro</title>
+<title>LayerLab â€” RelatÃ³rio Financeiro</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: Arial, sans-serif; background: #fff; color: #1a1a2e; padding: 32px; font-size: 13px; }
@@ -1519,17 +1519,17 @@ const Financial = ({ orders, supplies }) => {
 </head>
 <body>
   <div class="header">
-    <div class="logo">Layer<span>Lab</span> ✦</div>
-    <div class="date">Relatório Financeiro · ${dateStr}</div>
+    <div class="logo">Layer<span>Lab</span> âœ¦</div>
+    <div class="date">RelatÃ³rio Financeiro Â· ${dateStr}</div>
   </div>
 
   <div class="situation">
     <div>
-      <h2>${profit ? "✅ No Lucro!" : "⚠️ Prejuízo"}</h2>
+      <h2>${profit ? "âœ… No Lucro!" : "âš ï¸ PrejuÃ­zo"}</h2>
       <div class="amount">${realProfit < 0 ? "-" : ""}${fmt(realProfit)}</div>
-      <div style="font-size:12px;color:#555;margin-top:4px">${realProfit < 0 ? `Faltam ${fmt(Math.abs(realProfit))} pra empatar` : "Lucro real após descontar investimentos"}</div>
+      <div style="font-size:12px;color:#555;margin-top:4px">${realProfit < 0 ? `Faltam ${fmt(Math.abs(realProfit))} pra empatar` : "Lucro real apÃ³s descontar investimentos"}</div>
     </div>
-    <div style="font-size:48px">${profit ? "🎉" : "📉"}</div>
+    <div style="font-size:48px">${profit ? "ðŸŽ‰" : "ðŸ“‰"}</div>
   </div>
 
   <div class="grid">
@@ -1541,12 +1541,12 @@ const Financial = ({ orders, supplies }) => {
 
   ${debtors.length > 0 ? `
   <div class="section">
-    <h3>⚠️ Pagamentos em Aberto</h3>
+    <h3>âš ï¸ Pagamentos em Aberto</h3>
     ${debtors.map(o => `
       <div class="row">
         <div>
-          <div><strong>${o.clientName||"—"}</strong> — ${o.productName||""}</div>
-          ${o.daysLate !== null ? `<div class="${o.daysLate>0?"late":"ok"}">${o.daysLate>0?`🔴 ${o.daysLate} dias em atraso`:"🟢 Dentro do prazo"}</div>` : ""}
+          <div><strong>${o.clientName||"â€”"}</strong> â€” ${o.productName||""}</div>
+          ${o.daysLate !== null ? `<div class="${o.daysLate>0?"late":"ok"}">${o.daysLate>0?`ðŸ”´ ${o.daysLate} dias em atraso`:"ðŸŸ¢ Dentro do prazo"}</div>` : ""}
         </div>
         <div class="yellow" style="font-weight:700">${fmt(parseFloat(o.finalPrice))}</div>
       </div>`).join("")}
@@ -1554,7 +1554,7 @@ const Financial = ({ orders, supplies }) => {
 
   ${payers.length > 0 ? `
   <div class="section">
-    <h3>✅ Clientes que Pagaram</h3>
+    <h3>âœ… Clientes que Pagaram</h3>
     ${payers.map(([name,val]) => `
       <div class="row">
         <span>${name}</span>
@@ -1564,10 +1564,10 @@ const Financial = ({ orders, supplies }) => {
 
   ${(supplies||[]).length > 0 ? `
   <div class="section">
-    <h3>📦 Insumos Investidos</h3>
+    <h3>ðŸ“¦ Insumos Investidos</h3>
     ${(supplies||[]).map(s => `
       <div class="row">
-        <span>${s.name} (${s.category}) × ${s.quantity}</span>
+        <span>${s.name} (${s.category}) Ã— ${s.quantity}</span>
         <span class="red">${fmt(parseFloat(s.price)*parseFloat(s.quantity||1))}</span>
       </div>`).join("")}
     <div class="row" style="font-weight:700">
@@ -1576,7 +1576,7 @@ const Financial = ({ orders, supplies }) => {
     </div>
   </div>` : ""}
 
-  <div class="footer">LayerLab — Gestão de Impressão 3D · Relatório gerado em ${dateStr}</div>
+  <div class="footer">LayerLab â€” GestÃ£o de ImpressÃ£o 3D Â· RelatÃ³rio gerado em ${dateStr}</div>
 </body>
 </html>`;
 
@@ -1593,21 +1593,21 @@ const Financial = ({ orders, supplies }) => {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
         <div>
           <h2 style={{ color: "#EEE8FF", margin: 0 }}>Financeiro</h2>
-          <p style={{ color: "rgba(201,168,255,0.5)", margin: "4px 0 0", fontSize: 13 }}>Visão completa do negócio</p>
+          <p style={{ color: "rgba(201,168,255,0.5)", margin: "4px 0 0", fontSize: 13 }}>VisÃ£o completa do negÃ³cio</p>
         </div>
         <button onClick={generatePDF} style={{ padding: "10px 16px", borderRadius: 12, border: "none", background: "linear-gradient(135deg, #7B4FA6, #9B6DC5)", color: "#fff", fontSize: 13, fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>
-          📄 Relatório
+          ðŸ“„ RelatÃ³rio
         </button>
       </div>
 
-      {/* SITUAÇÃO */}
+      {/* SITUAÃ‡ÃƒO */}
       <div style={{ ...glassCard, background: realProfit >= 0 ? "linear-gradient(135deg,rgba(46,125,50,0.45),rgba(67,160,71,0.3))" : "linear-gradient(135deg,rgba(192,57,43,0.45),rgba(231,76,60,0.3))", border: `1px solid ${realProfit>=0?"rgba(76,175,80,0.35)":"rgba(231,76,60,0.35)"}`, padding: "18px 20px", marginBottom: 14, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
-          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.7)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 1 }}>{realProfit >= 0 ? "✅ No Lucro!" : "⚠️ Prejuízo"}</div>
+          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.7)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 1 }}>{realProfit >= 0 ? "âœ… No Lucro!" : "âš ï¸ PrejuÃ­zo"}</div>
           <div style={{ fontSize: 28, fontWeight: 900, color: "#fff", marginTop: 4 }}>{realProfit < 0 ? "-" : ""}{fmt(realProfit)}</div>
-          <div style={{ fontSize: 11, color: "rgba(255,255,255,0.6)", marginTop: 2 }}>{realProfit < 0 ? `Faltam ${fmt(Math.abs(realProfit))} pra empatar` : "Lucro real após investimentos"}</div>
+          <div style={{ fontSize: 11, color: "rgba(255,255,255,0.6)", marginTop: 2 }}>{realProfit < 0 ? `Faltam ${fmt(Math.abs(realProfit))} pra empatar` : "Lucro real apÃ³s investimentos"}</div>
         </div>
-        <span style={{ fontSize: 40 }}>{realProfit >= 0 ? "🎉" : "📉"}</span>
+        <span style={{ fontSize: 40 }}>{realProfit >= 0 ? "ðŸŽ‰" : "ðŸ“‰"}</span>
       </div>
 
       {/* CARDS */}
@@ -1628,15 +1628,15 @@ const Financial = ({ orders, supplies }) => {
 
       {/* DEVEDORES */}
       {debtors.length > 0 && <>
-        <div style={{ fontSize: 11, color: "rgba(201,168,255,0.6)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 1, marginBottom: 10 }}>⚠️ Pagamentos em Aberto</div>
+        <div style={{ fontSize: 11, color: "rgba(201,168,255,0.6)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 1, marginBottom: 10 }}>âš ï¸ Pagamentos em Aberto</div>
         {debtors.map(o => (
           <div key={o.id} style={{ ...glassCard, padding: "12px 16px", marginBottom: 8, borderColor: o.daysLate > 0 ? "rgba(231,76,60,0.45)" : "rgba(201,168,255,0.15)" }}>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <div>
-                <div style={{ fontWeight: 700, color: "#EEE8FF", fontSize: 14 }}>{o.clientName || "—"}</div>
+                <div style={{ fontWeight: 700, color: "#EEE8FF", fontSize: 14 }}>{o.clientName || "â€”"}</div>
                 <div style={{ fontSize: 12, color: "rgba(201,168,255,0.55)", marginTop: 2 }}>{o.productName}</div>
                 {o.daysLate !== null && <div style={{ fontSize: 11, fontWeight: 700, marginTop: 4, color: o.daysLate > 0 ? "#FF8A80" : "#7FFFA8" }}>
-                  {o.daysLate > 0 ? `🔴 ${o.daysLate} dias em atraso` : "🟢 Dentro do prazo"}
+                  {o.daysLate > 0 ? `ðŸ”´ ${o.daysLate} dias em atraso` : "ðŸŸ¢ Dentro do prazo"}
                 </div>}
               </div>
               <span style={{ fontWeight: 900, color: "#FFD166", fontSize: 16 }}>{fmt(parseFloat(o.finalPrice))}</span>
@@ -1647,7 +1647,7 @@ const Financial = ({ orders, supplies }) => {
 
       {/* PAGADORES */}
       {payers.length > 0 && <>
-        <div style={{ fontSize: 11, color: "rgba(201,168,255,0.6)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 1, marginBottom: 10, marginTop: 16 }}>✅ Clientes que Pagaram</div>
+        <div style={{ fontSize: 11, color: "rgba(201,168,255,0.6)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 1, marginBottom: 10, marginTop: 16 }}>âœ… Clientes que Pagaram</div>
         {payers.map(([name, val]) => (
           <div key={name} style={{ ...glassCard, padding: "12px 16px", marginBottom: 8, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <span style={{ color: "#EEE8FF", fontWeight: 600 }}>{name}</span>
@@ -1658,7 +1658,7 @@ const Financial = ({ orders, supplies }) => {
 
       {orders.length === 0 && (
         <div style={{ textAlign: "center", padding: "40px 0", color: "rgba(201,168,255,0.4)" }}>
-          <div style={{ fontSize: 40, marginBottom: 8 }}>📊</div>
+          <div style={{ fontSize: 40, marginBottom: 8 }}>ðŸ“Š</div>
           <p>Nenhum dado financeiro ainda.</p>
         </div>
       )}
@@ -1795,7 +1795,7 @@ export default function App() {
     <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(145deg, #1E1040, #2A1658, #1A2040)", fontFamily: "inherit" }}>
       <AppBackground />
       <div style={{ zIndex: 1, textAlign: "center", color: "#C9A8FF" }}>
-        <div style={{ fontSize: 40, marginBottom: 16 }}>🖨️</div>
+        <div style={{ fontSize: 40, marginBottom: 16 }}>ðŸ–¨ï¸</div>
         <div style={{ fontSize: 16, fontWeight: 600 }}>Carregando seus dados...</div>
       </div>
     </div>
@@ -1811,14 +1811,14 @@ export default function App() {
   };
 
   const nav = [
-    { id: "home",      label: "Início",      icon: "home" },
+    { id: "home",      label: "InÃ­cio",      icon: "home" },
     { id: "calculator",label: "Calculadora", icon: "calc" },
     { id: "orders",    label: "Pedidos",     icon: "orders" },
     { id: "clients",   label: "Clientes",    icon: "clients" },
-    { id: "catalog",   label: "Catálogo",    icon: "catalog" },
+    { id: "catalog",   label: "CatÃ¡logo",    icon: "catalog" },
     { id: "supplies",  label: "Insumos",     icon: "box" },
     { id: "financial", label: "Financeiro",  icon: "chart" },
-    { id: "services",  label: "Serviços",    icon: "calc" },
+    { id: "services",  label: "ServiÃ§os",    icon: "calc" },
   ];
 
   const renderPage = () => {
@@ -1841,7 +1841,7 @@ export default function App() {
       <aside style={{ width: 220, background: "rgba(20,10,48,0.75)", backdropFilter: "blur(20px)", borderRight: "1px solid rgba(201,168,255,0.12)", display: "flex", flexDirection: "column", position: "sticky", top: 0, height: "100vh", flexShrink: 0, zIndex: 10 }} className="sidebar-desktop">
         <div style={{ padding: "24px 20px 12px" }}><Logo dark /></div>
         <div style={{ height: 1, background: "rgba(201,168,255,0.1)", margin: "4px 16px 8px" }} />
-        {userEmail && <div style={{ padding: "0 16px 12px", fontSize: 11, color: "rgba(201,168,255,0.4)", textAlign: "center", wordBreak: "break-all" }}>👤 {userEmail}</div>}
+        {userEmail && <div style={{ padding: "0 16px 12px", fontSize: 11, color: "rgba(201,168,255,0.4)", textAlign: "center", wordBreak: "break-all" }}>ðŸ‘¤ {userEmail}</div>}
         <nav style={{ flex: 1, padding: "8px 12px" }}>
           {nav.map(n => (
             <button key={n.id} onClick={() => setPage(n.id)} style={{ display: "flex", alignItems: "center", gap: 12, width: "100%", padding: "11px 14px", borderRadius: 10, marginBottom: 4, border: "none", cursor: "pointer", fontFamily: "inherit", fontSize: 14, fontWeight: 600, background: page === n.id ? "rgba(123,79,166,0.3)" : "transparent", color: page === n.id ? "#D4B8FF" : "rgba(201,168,255,0.55)", transition: "all .15s" }}>
@@ -1852,7 +1852,7 @@ export default function App() {
         </nav>
         <div style={{ padding: "12px 16px 16px", borderTop: "1px solid rgba(201,168,255,0.08)" }}>
           <button onClick={() => { setToken(null); setOrders([]); setClients([]); setCatalog([]); }} style={{ width: "100%", padding: "9px 12px", borderRadius: 10, border: "1px solid rgba(201,168,255,0.15)", background: "rgba(255,255,255,0.04)", color: "rgba(201,168,255,0.5)", fontSize: 12, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
-            🚪 Sair
+            ðŸšª Sair
           </button>
         </div>
       </aside>
@@ -1868,7 +1868,7 @@ export default function App() {
         ))}
         <button onClick={() => { if(confirm("Sair da conta?")) { setToken(null); setOrders([]); setClients([]); setCatalog([]); setSupplies([]); }}} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, background: "none", border: "none", cursor: "pointer", fontFamily: "inherit", color: "rgba(255,100,100,0.7)", fontSize: 9, fontWeight: 600, padding: "2px 6px", flex: 1 }}>
           <div style={{ width: 36, height: 36, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ fontSize: 18 }}>🚪</span>
+            <span style={{ fontSize: 18 }}>ðŸšª</span>
           </div>
           Sair
         </button>
