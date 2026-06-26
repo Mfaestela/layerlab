@@ -635,6 +635,67 @@ const ClientSearch = ({ clients, value, onChange }) => {
 // ════════════════════════════════════════════════════════
 // SEÇÃO: SERVIÇOS
 // ════════════════════════════════════════════════════════
+
+// -- CatalogPicker -- (componente de selecao de itens)
+const CatalogPicker = ({ type, catalog, services, editingOrder, setEditingOrder }) => {
+  const isProduct = type === "products";
+  const sourceItems = isProduct ? catalog : services;
+
+  const addItem = (item) => {
+    setEditingOrder(o => {
+      const arr = o[type] || [];
+      const existing = arr.find(i => i.id === item.id);
+      if (existing) return { ...o, [type]: arr.map(i => i.id === item.id ? { ...i, qty: i.qty + 1 } : i) };
+      return { ...o, [type]: [...arr, { ...item, qty: 1 }] };
+    });
+  };
+  const removeItem = (itemId) => setEditingOrder(o => ({ ...o, [type]: (o[type]||[]).filter(i => i.id !== itemId) }));
+  const changeQty = (itemId, delta) => setEditingOrder(o => ({ ...o, [type]: (o[type]||[]).map(i => i.id === itemId ? { ...i, qty: Math.max(1, i.qty + delta) } : i) }));
+
+  return (
+    <div>
+      <div style={{ fontSize: 12, fontWeight: 600, color: C.textMid, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 10 }}>
+        {isProduct ? "Adicionar Produto do Catalogo" : "Adicionar Servico"}
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8, maxHeight: 200, overflowY: "auto", marginBottom: 16 }}>
+        {sourceItems.length === 0 ? (
+          <p style={{ color: C.textLight, fontSize: 13 }}>{isProduct ? "Nenhum produto no catalogo." : "Nenhum servico cadastrado."}</p>
+        ) : sourceItems.map(item => (
+          <div key={item.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 12px", borderRadius: 10, background: C.lavender, border: `1px solid ${C.lavenderMid}` }}>
+            <div>
+              <div style={{ fontWeight: 600, fontSize: 13, color: C.text }}>{item.name}</div>
+              <div style={{ fontSize: 12, color: C.textLight }}>R$ {parseFloat(item.price).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</div>
+            </div>
+            <button onClick={() => addItem(item)} style={{ padding: "5px 14px", borderRadius: 8, border: "none", background: C.primary, color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer" }}>+ Add</button>
+          </div>
+        ))}
+      </div>
+      {(editingOrder?.[type]||[]).length > 0 && (
+        <div>
+          <div style={{ fontSize: 12, fontWeight: 600, color: C.textMid, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 8 }}>Itens adicionados</div>
+          {(editingOrder[type]||[]).map(item => (
+            <div key={item.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 12px", marginBottom: 6, borderRadius: 10, background: C.white, border: `1px solid ${C.lavenderMid}` }}>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontWeight: 600, fontSize: 13 }}>{item.name}</div>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 4 }}>
+                  <button onClick={() => changeQty(item.id, -1)} style={{ width: 24, height: 24, borderRadius: 6, border: "none", background: C.lavenderMid, cursor: "pointer", fontWeight: 700, fontSize: 14 }}>-</button>
+                  <span style={{ fontWeight: 700 }}>{item.qty}</span>
+                  <button onClick={() => changeQty(item.id, 1)} style={{ width: 24, height: 24, borderRadius: 6, border: "none", background: C.lavenderMid, cursor: "pointer", fontWeight: 700, fontSize: 14 }}>+</button>
+                  <span style={{ fontSize: 12, color: C.textLight }}>x R$ {parseFloat(item.price).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</span>
+                </div>
+              </div>
+              <div style={{ textAlign: "right" }}>
+                <div style={{ fontWeight: 700, color: C.primary }}>R$ {(parseFloat(item.price) * item.qty).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</div>
+                <button onClick={() => removeItem(item.id)} style={{ fontSize: 11, color: C.danger, background: "none", border: "none", cursor: "pointer", padding: 0, marginTop: 2 }}>remover</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const ServicesCatalog = ({ services, addService, deleteService }) => {
   const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState({ name: "", description: "", price: "" });
@@ -794,53 +855,6 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
 
   const filtered = orders.filter(o => filterStatus === "Todos" || o.status === filterStatus);
 
-  const CatalogPicker = ({ type }) => {
-    const isProduct = type === "products";
-    const sourceItems = isProduct ? catalog : services;
-    return (
-    <div>
-      <div style={{ fontSize: 12, fontWeight: 600, color: C.textMid, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 10 }}>
-        {isProduct ? "Adicionar Produto do Catálogo" : "Adicionar Serviço"}
-      </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 8, maxHeight: 200, overflowY: "auto", marginBottom: 16 }}>
-        {sourceItems.length === 0 ? (
-          <p style={{ color: C.textLight, fontSize: 13 }}>{isProduct ? "Nenhum produto no catálogo." : "Nenhum serviço cadastrado."}</p>
-        ) : sourceItems.map(item => (
-          <div key={item.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 12px", borderRadius: 10, background: C.lavender, border: `1px solid ${C.lavenderMid}` }}>
-            <div>
-              <div style={{ fontWeight: 600, fontSize: 13, color: C.text }}>{item.name}</div>
-              <div style={{ fontSize: 12, color: C.textLight }}>R$ {parseFloat(item.price).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</div>
-            </div>
-            <button onClick={() => addItem(type, item)} style={{ padding: "5px 14px", borderRadius: 8, border: "none", background: C.primary, color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer" }}>+ Add</button>
-          </div>
-        ))}
-      </div>
-
-      {(editingOrder?.[type]||[]).length > 0 && (
-        <div>
-          <div style={{ fontSize: 12, fontWeight: 600, color: C.textMid, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 8 }}>Itens adicionados</div>
-          {(editingOrder[type]||[]).map(item => (
-            <div key={item.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 12px", marginBottom: 6, borderRadius: 10, background: C.white, border: `1px solid ${C.lavenderMid}` }}>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontWeight: 600, fontSize: 13 }}>{item.name}</div>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 4 }}>
-                  <button onClick={() => changeQty(type, item.id, -1)} style={{ width: 24, height: 24, borderRadius: 6, border: "none", background: C.lavenderMid, cursor: "pointer", fontWeight: 700, fontSize: 14 }}>-</button>
-                  <span style={{ fontWeight: 700 }}>{item.qty}</span>
-                  <button onClick={() => changeQty(type, item.id, 1)} style={{ width: 24, height: 24, borderRadius: 6, border: "none", background: C.lavenderMid, cursor: "pointer", fontWeight: 700, fontSize: 14 }}>+</button>
-                  <span style={{ fontSize: 12, color: C.textLight }}>× R$ {parseFloat(item.price).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</span>
-                </div>
-              </div>
-              <div style={{ textAlign: "right" }}>
-                <div style={{ fontWeight: 700, color: C.primary }}>R$ {(parseFloat(item.price) * item.qty).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</div>
-                <button onClick={() => removeItem(type, item.id)} style={{ fontSize: 11, color: C.danger, background: "none", border: "none", cursor: "pointer", padding: 0, marginTop: 2 }}>remover</button>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-  };  // fim CatalogPicker
 
   // ── TELA DE EDIÇÃO ──
   if (view === "edit" && editingOrder) {
@@ -898,8 +912,8 @@ const Orders = ({ orders, addOrder, updateOrder, deleteOrder, updateOrderStatus,
               <Field label="Observações" value={editingOrder.notes||""} onChange={v => setEditingOrder(o => ({ ...o, notes: v }))} placeholder="Anotações internas..." />
             </div>
           )}
-          {activeTab === "products" && <CatalogPicker type="products" />}
-          {activeTab === "services" && <CatalogPicker type="services" />}
+          {activeTab === "products" && <CatalogPicker type="products" catalog={catalog} services={services} editingOrder={editingOrder} setEditingOrder={setEditingOrder} />}
+          {activeTab === "services" && <CatalogPicker type="services" catalog={catalog} services={services} editingOrder={editingOrder} setEditingOrder={setEditingOrder} />}
         </div>
 
         {/* Botões fixos na base */}
