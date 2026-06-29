@@ -185,16 +185,16 @@ const C = {
   warn: "#E65100",
 };
 
-// Fonte display moderna para titulos e numeros
-const DISPLAY = "'Space Grotesk', 'Inter', sans-serif";
-const BODY = "'Inter', 'Segoe UI', sans-serif";
+// Fontes: Sora para titulos/numeros, Manrope para corpo
+const DISPLAY = "'Sora', 'Segoe UI', sans-serif";
+const BODY = "'Manrope', 'Segoe UI', sans-serif";
 
 const s = {
   page: {
     minHeight: "100dvh",
     background: `linear-gradient(160deg, ${C.bg} 0%, ${C.bg2} 100%)`,
     color: C.text,
-    fontFamily: "'Inter', 'Segoe UI', sans-serif",
+    fontFamily: "'Manrope', 'Segoe UI', sans-serif",
     paddingTop: "env(safe-area-inset-top)",
     paddingBottom: "calc(80px + env(safe-area-inset-bottom))",
   },
@@ -353,9 +353,10 @@ function Field({ label, children, style }) {
 // LOGO (icone neon)
 // ============================================================
 function Logo({ size = 32 }) {
+  const src = `${import.meta.env.BASE_URL}logo.png`;
   return (
     <img
-      src="/logo.png"
+      src={src}
       alt="LayerLab"
       width={size}
       height={size}
@@ -364,6 +365,7 @@ function Logo({ size = 32 }) {
         height: size,
         borderRadius: size * 0.22,
         display: "block",
+        objectFit: "cover",
         filter: "drop-shadow(0 0 12px rgba(155,109,197,0.5))",
       }}
     />
